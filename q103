@@ -1,0 +1,28 @@
+#include <stdio.h>
+int main() {
+    int n, i, j;
+    int a[100];
+    int left, right;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+    printf("Enter array elements: ");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    for (i = 0; i < n; i++) {
+        left = 0;
+        right = 0;
+        for (j = 0; j < i; j++) {
+            left = left + a[j];
+        }
+        for (j = i + 1; j < n; j++) {
+            right = right + a[j];
+        }
+        if (left == right) {
+            printf("Pivot index = %d", i);
+            return 0;   
+        }
+    }
+    printf("Pivot index = -1");
+    return 0;
+}
